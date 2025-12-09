@@ -14,6 +14,10 @@ import { AuthProvider } from './context/AuthContext';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import MatchesPage from './pages/MatchesPage';
+import ProfilePage from './pages/ProfilePage';
+import PlayerDetailsPage from './pages/PlayerDetailsPage';
+
 
 // --- Définition des Routes ---
 const router = createBrowserRouter([
@@ -34,12 +38,20 @@ const router = createBrowserRouter([
       
       // Exemple de Route Protégée
       { 
-          path: 'dashboard', 
-          element: (
-              <ProtectedRoute>
-                  <DashboardPage />
-              </ProtectedRoute>
-          ) 
+        path: 'matches', 
+        element: <ProtectedRoute><MatchesPage /></ProtectedRoute> 
+      },
+      { 
+        path: 'profile', 
+        element: <ProtectedRoute><ProfilePage /></ProtectedRoute> 
+      },
+      { 
+        path: 'player/:id', // Route dynamique pour les détails
+        element: <ProtectedRoute><PlayerDetailsPage /></ProtectedRoute> 
+      },
+      { 
+        path: 'dashboard', 
+        element: <ProtectedRoute><DashboardPage /></ProtectedRoute> 
       }
     ],
   },

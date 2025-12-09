@@ -17,3 +17,12 @@ export const deletePlayer = async (id) => {
     return response.data;
 };
 // Vous auriez aussi updatePlayer ici
+export const getAllPerformanceStats = async () => {
+    // Assurez-vous que votre route Backend GET /api/stats fait un .populate('player match')
+    const response = await api.get('/stats'); 
+    return response.data;
+};
+export const updatePerformanceStat = async (statId, updatedData) => {
+    const response = await api.put(`/stats/${statId}`, updatedData);
+    return response.data;
+};

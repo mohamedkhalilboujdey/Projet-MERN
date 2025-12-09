@@ -10,7 +10,13 @@ function Layout() {
             <nav style={{ padding: '10px 20px', backgroundColor: '#f0f0f0', display: 'flex', justifyContent: 'space-between' }}>
                 <div>
                     <Link to="/">Accueil</Link> | 
-                    <Link to="/blog">Blog Manager</Link> |
+                    <Link to="/blog">Joueurs</Link> |
+                    {user && (
+                        <>
+                            <Link to="/matches">Matchs</Link> |
+                            <Link to="/profile">Profil</Link> |
+                        </>
+                    )}
                     <Link to="/dashboard">Dashboard</Link>
                 </div>
 
